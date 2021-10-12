@@ -6,11 +6,13 @@ import classes from './Cart.module.css'
 
 const Cart = (props) => {
     const cartcontext = useContext(CartContext);
-    const totalAmount = `$${cartcontext.amount}`;
+    const totalAmount = `$${cartcontext.amount.toFixed(2)}`;
     const hasItems = cartcontext.items.length > 0;
 
-    const cartItemAddHandler=id=>{}
-    const cartItemRemoveHandler=item=>{}
+    const cartItemAddHandler=item=>{
+        cartcontext.addItem(item)
+    }
+    const cartItemRemoveHandler=id=>{}
 
     const cartitems = <ul>
         {
